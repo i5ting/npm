@@ -176,10 +176,29 @@ lib是模块的核心代码目录，一般是index.js找lib/xxx.js
 
 当然更多的时候，我们看到的命令是这样
 
+```
 ➜  vsc-doc git:(master) ✗ cp --help
 cp: illegal option -- -
 usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvX] source_file target_file
        cp [-R [-H | -L | -P]] [
+```
+
+## 在其他模块如何引用？
+
+kill by some port
+
+```
+  #!/usr/bin/env node
+
+  var kp = require("kp");
+  kp(3980);
+```
+
+其实很简单，代码模块划分即可
+
+- index.js为模块入扣
+- bin/kp调用index.js里的内容，完成具体的命令封装
+
 ## 更多
 
 推荐几个解析命令行args的库
